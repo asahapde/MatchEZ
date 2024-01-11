@@ -1,0 +1,64 @@
+<h1 class="title">Assign Courses</h1>
+
+<h2 class="subTitle">Select Professor:</h2>
+
+<form class="searchBox">
+    <mat-form-field class="example-full-width">
+        <mat-label>Professor</mat-label>
+        <input type="text" [(ngModel)]="profSearchBoxValue" placeholder="Select One" aria-label="Number" matInput
+            [formControl]="myProfControl" [matAutocomplete]="auto" id="searchBoxInput2" (change)="selectProf()">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+            (optionSelected)='directSelectProf($event.option.value)'>
+            <mat-option *ngFor="let option of filteredProfOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" class="addBtn" (click)="selectProf()">Select</button>
+</form>
+
+<div *ngIf='!!selectedProf && selectedProf != ""'>
+    <h2 class="subTitle">Selected Professor: {{selectedProf}}</h2>
+    <h2 class="subTitle2">Select Courses:</h2>
+    <form class="searchBox">
+        <mat-form-field class="example-full-width">
+            <mat-label>Course</mat-label>
+            <input type="text" [(ngModel)]="searchBoxValue" placeholder="Select One" aria-label="Number" matInput
+                [formControl]="myControl" [matAutocomplete]="auto" id="searchBoxInput"
+                (change)="changeInputValue($event)">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                (optionSelected)='selectCourse($event.option.value)'>
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" class="addBtn" (click)="addCourse()">Add</button>
+    </form>
+
+    <h2 class="subTitle">Instructor's Courses:</h2>
+    <div class="courses">
+        <mat-card class="course" *ngFor="let course of courses"><span>{{course}}</span>
+            <button class="testb" mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+                (click)="removeCourse(course)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card>
+    </div>
+</div>
+
+<div *ngIf="showWarning" class="warningDarken">
+    <div class="warningWindow">
+        <h2>Warning:</h2>
+        <p>Are you sure you want to delete this record?</p>
+
+        <div class="warningBtns">
+            <button mat-raised-button color="warn" class="warningBtn" (click)="deleteCourse()">Delete</button>
+            <button mat-button class="warningBtn" (click)="cancelWarning()">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.wrapper{
+    width: 600px;
+    height: 275px;
+}
+
+p{
+    width: 100%;
+    font-size: 17px;
+}
+
+p mat-form-field{
+    width: 45%;
+    margin-left: 15px;
+}
+
+button{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.form p{
+    display: inline-block;
+    width: 45%;
+}
+
+.form mat-form-field{
+    width: 100%;
+}
+
+.form{
+    width: 100%;
+}
+
+.form div{
+    width: 45%;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 60px;
+    padding-bottom: 30px;
+}
+
+#cancel{
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+#submit{
+    margin-left: 45px;
+    font-size: 18px;
+}

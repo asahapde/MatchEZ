@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 class="title">TA Allocations</h1>
+
+    <mat-card class="content">
+        <mat-card-content>
+            <h2>Automate the process of allocating TA's by running the matching algorithm</h2>
+            <p class="instructions">
+                Click here to run the algorithm
+                <button  (click)="startMatching()" mat-raised-button color="primary">Match</button>
+            </p>
+
+            <div *ngIf ="allocations.length == 0" class="default">
+                <h1>No allocations have been made yet.</h1>
+            </div>
+
+            <div class = wrapper2 *ngIf="allocations.length > 0">
+               <app-course-allocations [courseAllocationInfo]="courseAllocationInfo"></app-course-allocations>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

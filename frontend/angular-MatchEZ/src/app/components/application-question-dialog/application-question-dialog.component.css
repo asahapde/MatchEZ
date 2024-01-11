@@ -1,0 +1,33 @@
+.container{
+    width: 700px;
+    height: fit-content
+}
+
+.general-info{
+    font-size: 22px;
+}
+
+.answer{
+    display: block;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 18px;
+}
+
+.question{
+    font-size: 18px;
+    color: black;
+}
+
+.content{
+    margin-top: 30px;
+}
+
+.none{
+    width: 100%;
+}
+
+.none h1{
+    margin: 0 auto;
+    width: fit-content;
+}

@@ -1,0 +1,39 @@
+<div class="component-container">
+    <!-- <h1 class="title">Upload Instructor Spreadsheet</h1> -->
+
+    <mat-card class="form-container">
+        <mat-card-title>File Format</mat-card-title>
+        <mat-card-subtitle style="margin-top: 15px;">Select a spreadsheet to upload </mat-card-subtitle>
+
+        <mat-card-content>
+            <div class="file-upload" style="width: 100%;">
+                <input type="file" (change)="onFileSelected($event)">
+            </div>
+            <mat-card-subtitle style="margin-top: 15px;">Please specify the columns/rows of the following information on the spreadsheet (ex. Instructors start at A) </mat-card-subtitle>
+            <form [formGroup]="myForm">
+                <div class="form-left">
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <label>Instructor Name</label>
+                            <input formControlName="instructorName" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="instructorName.invalid && instructorName.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Instructor Email</label>
+                            <input formControlName="instructorEmail" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="instructorEmail.invalid && instructorEmail.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button  mat-raised-button color="primary" (click)="reset()" >Clear</button>
+            <button mat-raised-button color="primary" (click)="submit()" [disabled]="!myForm.valid || submitStatus" >Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

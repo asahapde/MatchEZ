@@ -1,0 +1,18 @@
+.tabs{
+    margin: 100px;
+    height: fit-content;
+    width: 80%;
+    margin: 70px auto;
+    border-right: 2px solid #673AB7;
+    border-bottom: 2px solid #673AB7;
+    border-left: 2px solid #673AB7;
+}
+
+.title{
+    margin: 20px 0 0 40px;
+    font-size: 40px;
+}
+
+mat-tab{
+    height: fit-content;
+}

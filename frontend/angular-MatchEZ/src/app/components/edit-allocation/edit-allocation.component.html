@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <h1>Manage TA Info</h1>
+    <div>
+        <p>
+            <mat-form-field appearance='legacy'>
+                <p>Course Allocation</p>
+                <mat-select [(value)]="courseSelection">
+                    <mat-option *ngFor="let course of data.courses" [value]="course">
+                        {{course}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance='legacy'>
+                <p>Status</p>
+                <mat-select [(value)]="typeSelection">
+                    <mat-option value="1">
+                        1
+                    </mat-option>
+                    <mat-option value="2">
+                        2
+                    </mat-option>
+                    <mat-option value="3">
+                        3
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <div class="form">
+            <p>
+                <mat-form-field appearance='legacy'>
+                    <p>Hours</p>
+                    <input [(ngModel)]="hoursInput" type="text" matInput>
+                </mat-form-field>
+            </p>
+            <div>
+                <button (click)="cancel()" id="cancel" color='primary' mat-raised-button>Cancel</button>
+                <button (click)="submit()" id="submit" color='primary' mat-raised-button>Submit</button>
+            </div>
+        </div>
+        <!-- <p>
+            <mat-form-field appearance='legacy'>
+               <p>Hours</p>
+               <input type="text" matInput>
+            </mat-form-field>
+
+            <button mat-raised-button>Cancel</button>
+            <button mat-raised-button>Submit</button>
+        </p> -->
+    </div>
+</div>

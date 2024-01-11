@@ -1,0 +1,25 @@
+.container{
+    width: 750px;
+    min-height: 400px;
+}
+
+p{
+    width: 100%;
+    font-size: 18px;
+}
+
+.submit{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+.submit button{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+mat-form-field{
+    width: 45%;
+    margin-left: 20px;
+}

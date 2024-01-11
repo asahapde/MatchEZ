@@ -1,0 +1,88 @@
+<div class="component-container">
+    <!-- <h1 class="title">Upload Applicant Spreadsheet</h1> -->
+
+    <mat-card class="form-container">
+        <mat-card-title>File Format</mat-card-title>
+        <mat-card-subtitle style="margin-top: 15px;">Select a spreadsheet to upload </mat-card-subtitle>
+
+        <mat-card-content>
+            <div class="file-upload" style="width: 100%;">
+                <input type="file" (change)="onFileSelected($event)">
+            </div>
+            <mat-card-subtitle style="margin-top: 15px;">Please specify the columns/rows of the following information on
+                the spreadsheet (ex. Course Code start at A) </mat-card-subtitle>
+            <form [formGroup]="myApplicantForm">
+                <div class="form-left">
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <label>Course Code</label>
+                            <input formControlName="courseCode" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="courseCode.invalid && courseCode.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Applicant Name</label>
+                            <input formControlName="applicantName" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="applicantName.invalid && applicantName.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <label>Applicant Email</label>
+                            <input formControlName="applicantEmail" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="applicantEmail.invalid && applicantEmail.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Applicant Status</label>
+                            <input formControlName="applicantStatus" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="applicantStatus.invalid && applicantStatus.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Number Of Hours</label>
+                            <input formControlName="numberOfHours" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="numberOfHours.invalid && numberOfHours.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Course Rank</label>
+                            <input formControlName="courseRank" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="courseRank.invalid && courseRank.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p class="questions">
+                        <label id="questions-heading">Questions</label>
+
+                        <mat-form-field appearance="legacy">
+                            <label>From</label>
+                            <input formControlName="from" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="from.invalid && from.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>To</label>
+                            <input formControlName="to" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="to.invalid && to.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="reset()">Clear</button>
+            <button mat-raised-button color="primary" (click)="submit()"
+                [disabled]="!myApplicantForm.valid || submitStatus">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

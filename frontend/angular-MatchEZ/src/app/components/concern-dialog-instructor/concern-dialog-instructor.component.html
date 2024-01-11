@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add Concern</h1>
+<div mat-dialog-content class="form-content">
+    <mat-form-field>
+        <mat-label>Course</mat-label>
+        <mat-select [(ngModel)]="course">
+            <mat-option *ngFor="let course of courseOptions" [value]="course">{{course}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="title">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Concern</mat-label>
+        <textarea matInput [(ngModel)]="concern"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="center">
+    <button mat-raised-button mat-dialog-close color="primary">Close</button>
+    <button mat-raised-button mat-dialog-close color="primary" (click)="onSubmit()">Submit</button>
+</div>

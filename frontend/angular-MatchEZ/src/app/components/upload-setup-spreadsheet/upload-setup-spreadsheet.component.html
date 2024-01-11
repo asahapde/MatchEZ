@@ -1,0 +1,64 @@
+<div class="component-container">
+    <!-- <h1 class="title">Upload Instructor Spreadsheet</h1> -->
+
+    <mat-card class="form-container">
+        <mat-card-title>File Format</mat-card-title>
+        <mat-card-subtitle style="margin-top: 15px;">Select a spreadsheet to upload </mat-card-subtitle>
+
+        <mat-card-content>
+            <div class="file-upload" style="width: 100%;">
+                <input type="file" (change)="onFileSelected($event)">
+            </div>
+            <mat-card-subtitle style="margin-top: 15px;">Please specify the columns/rows of the following information on the spreadsheet (ex. Instructors start at A) </mat-card-subtitle>
+            <form [formGroup]="myForm">
+                <div class="form-left">
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <label>Course Code</label>
+                            <input formControlName="code" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="code.invalid && code.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Course Name</label>
+                            <input formControlName="name" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="name.invalid && name.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <label>Lec Hours</label>
+                            <input formControlName="lecHours" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="lecHours.invalid && lecHours.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <label>Lab/Tutorial Hours</label>
+                            <input formControlName="labHours" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="labHours.invalid && labHours.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <label>Numebr of Sections</label>
+                            <input formControlName="section" type="text" autocomplete="off" matInput>
+                            <mat-error *ngIf="section.invalid && section.touched">
+                                Please enter a valid excel column (ex. A)
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button  mat-raised-button color="primary" (click)="reset()" >Clear</button>
+            <button mat-raised-button color="primary" (click)="submit()" [disabled]="!myForm.valid || submitStatus" >Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

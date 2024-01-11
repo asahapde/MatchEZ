@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+    <button (click)="setNav()" style="height: 100%;" mat-button>
+        <mat-icon style="font-size: 30px;">menu</mat-icon>
+    </button>
+    <div id="title">
+        MatchEZ
+    </div>
+    <div id="settings">
+        <span>
+            {{type}} - {{email}}
+        </span>
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="nav-container">
+    <mat-sidenav fixedInViewport="true" fixedTopGap="64" class="sidenav" [(opened)]="isOpen" mode="side">
+        <div routerLink='courseinfo' class="options-container">
+            <span>View Courses</span>
+        </div>
+        <div *ngIf="type === 'Undergraduate Chair'" routerLink='uploadspreadsheet' class="options-container">
+            <span>Upload Spreadsheets</span>
+        </div>
+        <div *ngIf="type === 'Undergraduate Chair'" routerLink='allocations' class="options-container">
+            <span>TA Allocations</span>
+        </div>
+        <div *ngIf="type === 'Undergraduate Chair'" routerLink='selectCourses' class="options-container">
+            <span>Assign Courses</span>
+        </div>
+        <div *ngIf="type === 'Instructor'" routerLink="courseapplications" class="options-container">
+            <span>Course Applications</span>
+        </div>
+        <div *ngIf="type === 'Instructor'" routerLink='applicationQuestions' class="options-container">
+            <span>Create Applications</span>
+        </div>
+        <div routerLink="instructor-concerns" *ngIf="type === 'Undergraduate Chair'" class="options-container">
+            <span>Instructor Concerns</span>
+        </div>
+        <div *ngIf="type === 'Instructor'" routerLink='taAllocations' class="options-container">
+            <span>View Ta Allocations</span>
+        </div>
+        <div routerLink="/login" (click)="signOut()" class="options-container">
+            <span>Sign Out</span>
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

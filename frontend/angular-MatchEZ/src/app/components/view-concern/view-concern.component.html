@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <h1>Course - {{course}}</h1>
+    <p class="heading">Message:</p>
+    <p class="message">{{concern}}</p>
+
+    <div *ngIf="!flag">
+        <button (click)="dismiss()" id="dismiss" color='primary' mat-raised-button>Dismiss</button>
+        <button (click)="resolve()" id="resolve" color='primary' mat-raised-button>Resolve</button>
+    </div>
+    <div *ngIf="flag">
+        <button (click)="dismiss()" id="delete" color="primary" mat-raised-button >Delete</button>
+    </div>
+</div>

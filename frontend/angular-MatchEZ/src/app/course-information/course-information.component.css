@@ -1,0 +1,82 @@
+.selectedDiv {
+  background-color: #000000;
+  padding: 10px;
+  margin: 10px;
+}
+
+.selectedDiv p {
+  color: white;
+}
+
+.selectedDiv h4 {
+  color: white;
+}
+
+#selectedHeading {
+  text-decoration: underline;
+  color: #f7fa64;
+}
+
+/* table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 2px solid #000000;
+  background-color: transparent;
+  border-collapse: collapse;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+th {
+  background-color: #d9d9d9;
+  border: 2px solid #474747;
+  font-size: 13px;
+  vertical-align: bottom;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border: 1px solid black;
+}
+
+td {
+  background-color: #dbdbdb;
+  padding: 8px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+} */
+
+#courseName {
+  text-emphasis: bold;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.dropdown,
+.searchInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.w-75 {
+  width: 75px;
+}
+
+.th-center {
+  text-align: center;
+}

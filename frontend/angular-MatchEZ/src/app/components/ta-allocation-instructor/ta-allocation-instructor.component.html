@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class="title">TA Allocations</h1>
+
+    
+
+    <mat-card class="content">
+
+        <mat-form-field>
+            <mat-label>Course</mat-label>
+            <mat-select [(ngModel)]="course" (selectionChange)="getAllocations()">
+                <mat-option *ngFor="let course of instructorCourses" [value]="course">{{course}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-card-content>
+            <div *ngIf ="course == undefined" class="default">
+                <h1>No course has been selected.</h1>
+            </div>
+
+            <div *ngIf ="allocations.length == 0 && course != undefined" class="default">
+                <h1>No allocations have been made yet.</h1>
+            </div>
+
+            <div class = wrapper2 *ngIf="allocations.length > 0">
+               <app-ta-allocations-table [courseAllocationInfo]="courseAllocationInfo"></app-ta-allocations-table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

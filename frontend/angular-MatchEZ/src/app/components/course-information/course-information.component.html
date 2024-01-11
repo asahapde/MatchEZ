@@ -1,0 +1,62 @@
+<h1 class="title">Course Information</h1>
+
+<div class="export" *ngIf="type === 'Undergraduate Chair'">
+  <button (click)="exportCourseApplications()" mat-button color="primary">Download Course Applications <mat-icon>download</mat-icon></button>
+</div>
+
+<div class="searchInput">
+  <mat-form-field>
+    <mat-label>Filter By Course</mat-label>
+    <input (keyup)="applyFilter($event.target.value)" matInput autocomplete="off">
+  </mat-form-field>
+
+</div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="course">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Course Code </th>
+    <td mat-cell *matCellDef="let element"> {{element['course'] | courseFilter}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Course Name </th>
+    <td mat-cell *matCellDef="let element"> {{element['name'] | courseFilter}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="labHrs">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Lab/Tut Hours </th>
+    <td mat-cell *matCellDef="let element">
+      <div> {{element['labHrs']}} </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="enrol_2020">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Enrollment 2020 </th>
+    <td mat-cell *matCellDef="let element"> {{element['prevenrol']}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="hours_2020">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Hours 2020 </th>
+    <td mat-cell *matCellDef="let element"> {{element['prevhrs']}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="enrol_2021">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Enrollment 2021 </th>
+    <td mat-cell *matCellDef="let element"> {{element['currenrol']}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="hours_est">
+    <th mat-header-cell *matHeaderCellDef class="th-center"> Estimated Hours (2021) </th>
+    <td mat-cell *matCellDef="let element">
+      {{element['hrsest']}}
+      <button mat-icon-button (click)="openDialog(element['course'])" class="edit-btn" *ngIf="type === 'Undergraduate Chair'">
+        <mat-icon>edit</mat-icon>
+      </button> 
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="th-center"></tr>
+</table>

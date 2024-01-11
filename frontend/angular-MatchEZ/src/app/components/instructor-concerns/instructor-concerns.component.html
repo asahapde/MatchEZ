@@ -1,0 +1,60 @@
+<h1 class="title">Instructor Concerns</h1>
+
+<mat-tab-group backgroundColor="primary" class="tabs">
+    <mat-tab label="Pending">
+       <mat-table [dataSource]="pendingData" matSort>
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="course">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Course</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.course}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="instructor">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Instructor</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.instructor}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>View Concerns</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)='openDialog(element)'>
+                    <mat-icon>info</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions] ="[5, 10, 20, 50]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+    </mat-tab>
+    <mat-tab label="Resolved">
+        <mat-table [dataSource]="historyData" matSort>
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="course">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Course</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.course}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="instructor">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Instructor</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.instructor}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>View Concerns</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <button mat-icon-button (click)='openDialog(element)'>
+                        <mat-icon>info</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+    
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions] ="[5, 10, 20, 50]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+    </mat-tab>
+</mat-tab-group>

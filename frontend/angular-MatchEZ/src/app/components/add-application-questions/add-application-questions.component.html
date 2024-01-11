@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="title">Create Applications</h1>
+    <mat-card class="form-container">
+
+        <mat-card-content class="content">
+            <mat-card-subtitle>Select the course you would like to create an application for.</mat-card-subtitle>
+            <mat-form-field class="search" appearance="legacy">
+                <mat-label>Course</mat-label>
+                <mat-select [(ngModel)]="courseSelection" (selectionChange)="setStatus()" disableOptionCentering
+                    class="courses">
+                    <mat-option *ngFor="let course of Arr" [value]="course">
+                        {{course}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-card-subtitle id="instruction">Specify the questions you would like on the application.</mat-card-subtitle>
+
+            <form [formGroup]="myForm" class="question-form">
+                <div formArrayName="questions">
+                    <div *ngFor="let question of questionForms.controls; let i = index" [formGroupName]="i">
+                        <mat-form-field class="questions">
+                            <mat-label>Question {{i+1}}</mat-label>
+                            <input matInput type="text" formControlName="text" autocomplete="off">
+                            <mat-error *ngIf="question.controls.text.touched">
+                                You must specify a question.
+                            </mat-error>
+                        </mat-form-field>
+                        <button type="button" mat-icon-button color="primary" (click)="delete(i)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" mat-raised-button color="primary" (click)="addQuestion()">Add Question</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+                <button mat-raised-button color="primary"  [disabled]="!myForm.valid || !submitStatus || questionForms.value.length == 0" (click)="submit()">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

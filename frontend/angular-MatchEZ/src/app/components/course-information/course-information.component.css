@@ -1,0 +1,73 @@
+.selectedDiv {
+    background-color: #000000;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .export{
+    width: 95%;
+    display: flex;
+    font-size: 25px;
+    zoom: 1.1;
+    justify-content: flex-end;
+  }
+
+  .searchInput{
+    zoom: 1.2;
+    font-size: 20px;
+  }
+
+  .searchInput mat-form-field{
+    width: 20%;
+    text-align: center;
+  }
+
+  .title{
+    margin: 20px 0 0 40px;
+    font-size: 40px;
+  }
+  
+  .selectedDiv p {
+    color: white;
+  }
+  
+  .selectedDiv h4 {
+    color: white;
+  }
+  
+  #selectedHeading {
+    text-decoration: underline;
+    color: #f7fa64;
+  }
+  
+  #courseName {
+    text-emphasis: bold;
+    text-decoration: underline;
+    margin-left: 10px;
+  }
+  
+  .dropdown,
+  .searchInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  table {
+    width: 80%;
+    margin: 0 auto 100px;
+  }
+  
+  .w-75 {
+    width: 75px;
+  }
+  
+  .th-center {
+    text-align: center;
+  }
+
+  .edit-btn {
+    margin-left: 10px;
+  }

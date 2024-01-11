@@ -1,0 +1,40 @@
+<div class=container>
+    <mat-card class="mat-elevation-z4">
+        <mat-card-title> Login </mat-card-title>
+        <mat-card-content> 
+            <div>
+                <form [formGroup]="form">
+                    <p>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Username <mat-icon>email</mat-icon> </mat-label>
+                            <input matInput type="text" autocomplete="off" formControlName="username" [(ngModel)] = "nameInput">
+                            <mat-error *ngIf="username.invalid && username.touched">
+                                Please enter a valid email
+                            </mat-error>
+                        </mat-form-field>
+                       </p>
+                       <p>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Password <mat-icon>https</mat-icon></mat-label>
+                            <input matInput type="password" autocomplete="off" formControlName="password" [(ngModel)] = "passwordInput">
+                            <mat-error *ngIf="password.invalid && password.touched">
+                                Please enter your password
+                            </mat-error>
+                        </mat-form-field>
+                       </p>
+                </form>  
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color = "primary" (click)="signIn()">
+                Sign In
+                <mat-icon>
+                   send 
+                </mat-icon>
+            </button>
+                <a class="forgotPassword">
+                    Forgot Password?
+                </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

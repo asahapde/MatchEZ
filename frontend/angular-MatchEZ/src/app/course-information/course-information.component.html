@@ -1,0 +1,50 @@
+ <div class="searchInput">
+    <mat-form-field>
+        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter by Course">
+    </mat-form-field>
+    
+ </div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="course">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Course </th>
+        <td mat-cell *matCellDef="let element"> {{element['course'] | courseFilter}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="instructor">
+      <th mat-header-cell *matHeaderCellDef class="w-75"> Instructor </th>
+      <td mat-cell *matCellDef="let element"> {{element.instructor}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="enrol_2020">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Enrollment 2020 </th>
+        <td mat-cell *matCellDef="let element"> {{element['prevenrol']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hours_2020">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Hours 2020 </th>
+        <td mat-cell *matCellDef="let element"> {{element['prevhrs']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="enrol_2021">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Enrollment 2021 </th>
+        <td mat-cell *matCellDef="let element"> {{element['currenrol']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hours_est">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Estimated Hours (2021) </th>
+        <td mat-cell *matCellDef="let element"> {{element['hrsest']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tas">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> TA's </th>
+        <td mat-cell *matCellDef="let element"> 
+            <div> {{element['ta']}}  </div>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="th-center"></tr>
+  </table>

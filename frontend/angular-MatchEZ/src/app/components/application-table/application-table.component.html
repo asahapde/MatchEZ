@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Applicant">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Applicant </th>
+        <td mat-cell *matCellDef="let element"> {{element['applicantName']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Email </th>
+        <td mat-cell *matCellDef="let element">{{element['applicantEmail']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element['applicantStatus']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Hours">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Hours </th>
+        <td mat-cell *matCellDef="let element"> {{element['numberOfHours']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Course_Rank">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Course Ranking </th>
+        <td mat-cell *matCellDef="let element"> {{element['courseRank']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Questions">
+        <th mat-header-cell *matHeaderCellDef class="th-center"> Questions </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="openDialog(element)">
+                <mat-icon>assignment</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr class="th-center" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

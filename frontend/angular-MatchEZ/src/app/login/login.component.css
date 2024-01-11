@@ -1,0 +1,25 @@
+mat-form-field{
+    display: flex;
+    justify-content: center; /*horizontal*/
+}
+
+mat-card{
+    text-align: center;
+    width: 300px;
+    margin: 50px auto;
+    zoom: 1.2;
+}
+
+.container{
+    height:100%;
+    width:100%;
+    display: flex; 
+    align-items: center; /*vertical*/ 
+    background-color: #f6f6f6;
+}
+
+.forgotPassword{
+    margin-top: 15px;
+    display: block;
+    cursor:pointer;
+}

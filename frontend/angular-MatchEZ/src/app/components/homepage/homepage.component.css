@@ -1,0 +1,39 @@
+
+.container{
+    width: 100%;
+    height: 100%;
+    background-image: url('https://communications.uwo.ca/comms/img/wallpapers/large/wallpaper_3LG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .button-wrapper{
+    position: absolute;
+    top: 50%;
+    zoom: 1.1;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .start{
+    zoom: 1.1;
+    width: 350px;
+    font-size: 20px;
+    color: #4f2683;
+}
+
+.description{
+  color:rgb(243, 239, 239);
+  background-color: transparent;
+  font-size: 17px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  width: 700px;
+  height: 65px;
+  top:70%;
+  zoom: 1.25;
+}

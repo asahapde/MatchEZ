@@ -1,0 +1,64 @@
+#title{
+    font-size: 40px;
+    margin-left: 50px;
+    cursor: default;
+    width: fit-content;
+    display: inline-block;
+}
+
+#settings{
+    display: inline-block;
+    width: 100%;
+}
+
+#settings span{
+    float: right;
+    padding-right: 70px;
+}
+
+#account-settings{
+    cursor: pointer;
+}
+
+mat-toolbar{
+    z-index: 999;
+    position: fixed;
+}
+
+mat-sidenav-content{
+    top: 64px;
+}
+
+.nav-container{
+    width: 100%;
+    min-height: 100%;
+}
+
+.sidenav{
+    width: 310px;
+    height: 100%;
+    background-color: #f6f6f6;
+    display: inline-block;
+}
+
+.options-container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+.options-container span{
+    width: fit-content;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.options-container:hover{
+    background-color:#E8E8E8;
+    cursor: pointer;
+    color: #008000;
+}
+
+.options-container:focus {
+    outline: 0;
+  }

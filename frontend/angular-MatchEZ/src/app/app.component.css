@@ -1,0 +1,14 @@
+.mat-display-2 {
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.navbar {
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+span {
+  padding-right: 1rem;
+}

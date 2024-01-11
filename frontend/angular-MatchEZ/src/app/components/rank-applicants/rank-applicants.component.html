@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Rank Applicants</h1>
+    <h3>Select the course that you want to rank applicants in.</h3>
+
+    <mat-form-field appearance="legacy">
+        <mat-label>Course</mat-label>
+        <mat-select [(ngModel)]="courseSelection"  (selectionChange)="getApplicantEmails()" disableOptionCentering class="courses">
+            <mat-option *ngFor="let name of courses" [value]="name">
+                {{name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+
+    <div class="ta-container" *ngIf="taArr.length > 0">
+        <h3>Drag and drop TA to rank them (In descending order)</h3>
+        <div cdkDropList class="list" (cdkDropListDropped)="drop($event)">
+            <div class="box" *ngFor="let ta of taArr" cdkDrag>{{ta}}</div>
+        </div>
+
+        <div class="button">
+            <button (click)="submitRankings()" mat-raised-button color="primary">Submit Rankings</button>
+        </div>
+    </div>
+</div>

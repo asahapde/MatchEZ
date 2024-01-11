@@ -1,0 +1,10 @@
+<h1 class="title">Course Applications</h1>
+
+<mat-tab-group backgroundColor="primary" class="tabs">
+  <mat-tab label="Rank Applicants">
+        <app-rank-applicants [courses]="tabs"></app-rank-applicants>
+    </mat-tab>
+    <mat-tab *ngFor="let tab of tabs" [label]="tab" >
+       <app-application-table [course] = "tab"></app-application-table>
+    </mat-tab>
+</mat-tab-group>

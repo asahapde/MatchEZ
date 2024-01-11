@@ -1,0 +1,63 @@
+<div class="container">
+    <div>
+        <h1>Add TA</h1>
+        <h3>Fill out the following fields to add a new TA to the system</h3>
+    </div>
+    <form [formGroup]="myForm">
+        <div class="form-left">
+            <p>
+                <mat-form-field appearance="legacy">
+                    <label>Name</label>
+                    <input formControlName="name" type="text" autocomplete="off" matInput>
+                    <mat-error *ngIf="name.invalid && name.touched">
+                        Please enter the name of the TA.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <label>Email</label>
+                    <input formControlName="email" type="text" autocomplete="off" matInput>
+                    <mat-error *ngIf="email.invalid && email.touched">
+                        Please specify the email of the TA.
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <label>Status</label>
+                    <mat-select formControlName="status" disableOptionCentering>
+                        <mat-option value="1">
+                            1
+                        </mat-option>
+                        <mat-option value="2">
+                            2
+                        </mat-option>
+                        <mat-option value="3">
+                            3
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <label>Course</label>
+                    <mat-select formControlName="course" [(value)]="courseSelection" disableOptionCentering>
+                        <mat-option *ngFor="let course of data.courses" [value]="course">
+                            {{course}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <label>Hours</label>
+                    <input formControlName="hours" type="text" autocomplete="off" matInput>
+                    <mat-error *ngIf="hours.invalid && hours.touched">
+                        Please specify the number of hours the TA will work.
+                    </mat-error>
+                </mat-form-field>
+            </p>
+        </div>
+    </form>
+    <div class="submit">
+        <button  mat-raised-button color="primary" (click)="close()" >Cancel</button>
+        <button mat-raised-button color="primary" (click)="submit()" [disabled]="!myForm.valid" >Add</button>
+    </div>
+</div>

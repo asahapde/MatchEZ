@@ -1,0 +1,17 @@
+<div class="container">
+    <h1> Application Responses - {{course}}</h1>
+    <p class="general-info">
+        <span>{{name}}</span> : <span>{{email}}</span>
+    </p>
+
+    <div class="content">
+    <p *ngFor='let question of questions; let i=index'>
+        <span class = "question">Question {{i+1}} - {{question.question}}</span>
+        <span class="answer">{{question.answer}}</span>
+      </p>
+
+    <div class="none" *ngIf="questions.length === 0">
+        <h1>No questions were specified</h1>
+    </div>
+    </div>
+</div>
